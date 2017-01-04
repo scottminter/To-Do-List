@@ -14,10 +14,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     let ListKey: String = "todoList"
     var List = [String]()
     
+    // add item button function
     @IBAction func addItem(_ sender: Any) {
         saveNewItem()
     }
     
+    // takes current version of List and adds its to storage
     private func saveNewItem() {
         let todoItemOpt: String? = itemInput.text
         
@@ -41,6 +43,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // get data out of storage and adds it to list
     private func updateList() {
         let todoListObj = UserDefaults.standard.object(forKey: ListKey)
         if let list = todoListObj as? Array<String> {
@@ -68,10 +71,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         updateList()
     }
     
+    // dismisses keyboard when touch outside
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    // functions for return button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         saveNewItem()
         textField.resignFirstResponder()

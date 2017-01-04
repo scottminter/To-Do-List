@@ -15,10 +15,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var List = [String]()
     var deletePlanetIndexPath: NSIndexPath? = nil
 
+    // Number of items in list
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return List.count
     }
     
+    // Handles each item in list
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "todoListCell")
         let i = indexPath.row
@@ -30,6 +32,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    // Hanldes deleting item from list
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             List.remove(at: indexPath.row)
@@ -41,6 +44,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
+    // Updates this view's copy of List
     func updateList() {
         let todoListObj = UserDefaults.standard.object(forKey: ListKey)
         if let list = todoListObj as? Array<String> {
