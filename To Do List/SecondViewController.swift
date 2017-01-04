@@ -12,7 +12,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var itemInput: UITextField!
     let ListKey: String = "todoList"
-    var List = [String]()
+    var List: [String] = []
     
     // add item button function
     @IBAction func addItem(_ sender: Any) {

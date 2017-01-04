@@ -12,7 +12,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var todoTable: UITableView!
     let ListKey: String = "todoList"
-    var List = [String]()
+    var List: [String] = []
     var deletePlanetIndexPath: NSIndexPath? = nil
 
     // Number of items in list
